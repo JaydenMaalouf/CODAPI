@@ -20,17 +20,32 @@ namespace CallOfDutyAPI
         
         public CODUser GetUser(string username, GameType gameType, PlatformType platformType)
         {
-            return new CODUser(username, gameType, platformType);
+            var user = new CODUser(username, gameType, platformType);
+            if (user.IsValid())
+            {
+                return user;
+            }
+            return null;
         }
 
         public CODUser GetUser(UID UniqueId)
         {
-            return new CODUser(UniqueId);
+            var user = new CODUser(UniqueId);
+            if (user.IsValid())
+            {
+                return user;
+            }
+            return null;
         }
 
         internal static async Task<IRestResponse> SendRestRequestAsync(RestRequest request)
         {
             return await restClient.ExecuteTaskAsync(request).ConfigureAwait(false);
+        }
+
+        internal static IRestResponse SendRestRequest(RestRequest request)
+        {
+            return restClient.Execute(request);
         }
     }
 }

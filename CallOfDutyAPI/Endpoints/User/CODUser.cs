@@ -39,7 +39,7 @@ namespace CallOfDutyAPI.Endpoints.User
             request.AddUrlSegment("username", username);
             request.AddUrlSegment("gameType", gameType.ToString().ToLower());
             request.AddUrlSegment("platformType", platformType.ToString().ToLower());
-            IRestResponse response = CODAPI.SendRestRequestAsync(request).Result;
+            IRestResponse response = CODAPI.SendRestRequest(request);
             if (response.ResponseStatus != ResponseStatus.Completed || String.IsNullOrWhiteSpace(response.Content))
             {
                 return;
@@ -55,12 +55,17 @@ namespace CallOfDutyAPI.Endpoints.User
         {
             var request = new RestRequest("users/ids", Method.GET);
             request.AddParameter("id", UniqueId.ToString());
-            IRestResponse response = CODAPI.SendRestRequestAsync(request).Result;
+            IRestResponse response = CODAPI.SendRestRequest(request);
             if (response.ResponseStatus != ResponseStatus.Completed || String.IsNullOrWhiteSpace(response.Content))
             {
                 return;
             }
             JsonConvert.PopulateObject(response.Content, this);
+        }
+
+        public bool IsValid()
+        {
+            return (UserId != null && !String.IsNullOrWhiteSpace(UserId.ToString()) && !String.IsNullOrWhiteSpace(Username));
         }
     }
 }

@@ -3,6 +3,9 @@
     public enum GameType
     {
         BO4,
+        BO4MP,
+        BO4BO,
+        BO4Z,
         BO3,
         WWII,
         IW
