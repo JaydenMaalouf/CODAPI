@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Kanga#8041</Authors>
+    <Company>Kanga#8041</Company>
+    <Description>A Call Of Duty C# API Wrapper using the bo4tracker.com API</Description>
+    <Copyright>Jayden Maalouf</Copyright>
+    <PackageLicenseUrl>https://github.com/JaydenMaalouf/CODAPI/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/JaydenMaalouf/CODAPI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JaydenMaalouf/CODAPI</RepositoryUrl>
+    <PackageTags>COD; C#; Wrapper; Stats; Leaderboard; Matches</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
